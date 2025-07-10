@@ -1,7 +1,6 @@
 package pe.edu.cibertec.waS3ventacibertec.model.controller.backoffice;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-    @Autowired
+
+
     private ICategoryService icategoryService;
 
 
