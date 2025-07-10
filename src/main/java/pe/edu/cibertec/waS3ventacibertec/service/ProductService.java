@@ -1,9 +1,9 @@
-package pe.edu.cibertec.waS3ventacibertec.model.service;
+package pe.edu.cibertec.waS3ventacibertec.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.waS3ventacibertec.model.bd.Product;
-import pe.edu.cibertec.waS3ventacibertec.model.repository.ProductRepository;
+import pe.edu.cibertec.waS3ventacibertec.repository.ProductRepository;
 
 import java.util.List;
 

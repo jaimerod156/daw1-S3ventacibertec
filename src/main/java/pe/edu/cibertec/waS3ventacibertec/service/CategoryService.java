@@ -1,10 +1,9 @@
-package pe.edu.cibertec.waS3ventacibertec.model.service;
+package pe.edu.cibertec.waS3ventacibertec.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.waS3ventacibertec.model.bd.Category;
-import pe.edu.cibertec.waS3ventacibertec.model.repository.CategoryRepository;
+import pe.edu.cibertec.waS3ventacibertec.repository.CategoryRepository;
 
 import java.util.List;
 
