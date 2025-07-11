@@ -12,16 +12,16 @@ import java.util.List;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SupplierId")
+    @Column(name = "supplier_id")
     private Integer supplierid=0;
 
-    @Column(name = "Company Name")
+    @Column(name = "company_name")
     private String companyname;
 
-    @Column(name = "ContactName")
+    @Column(name = "contact_name")
     private String contactname;
 
-    @Column(name = "ContactTitle")
+    @Column(name = "contact_title")
     private String contactitle;
 
     @Column(name = "Address")
@@ -33,7 +33,7 @@ public class Supplier {
     @Column(name = "Region")
     private String Region;
 
-    @Column(name = "PostalCode")
+    @Column(name = "postal_code")
     private String postalcode;
 
     @Column(name = "Country")
@@ -45,7 +45,7 @@ public class Supplier {
     @Column(name = "Fax")
     private String fax;
 
-    @Column(name = "HomePage")
+    @Column(name = "home_page")
     private String homepage;
 
     @JsonIgnore

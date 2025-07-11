@@ -13,8 +13,8 @@ public class Product {
     @Column(name = "ProductoID")
     private Integer productoid=0;
 
-    @Column(name = "ProductName")
-    private String productname;
+    //@Column(name = "ProductName")
+    private String product_name;
 
     @ManyToOne
     @JoinColumn(name = "SupplierID")
@@ -24,19 +24,19 @@ public class Product {
     @JoinColumn(name = "CategoryID")
     private Category category;
 
-    @Column(name = "QuantityPerUnit")
+    @Column(name = "quantity_per_unit")
     private String quantityperunit;
 
-    @Column(name = "UnitPrice")
+    @Column(name = "unit_price")
     private Double unitprice;
 
-    @Column(name = "UnitsInStock")
+    @Column(name = "units_in_stock")
     private Integer unitsinstock;
 
-    @Column(name = "UnitsOnOrder")
+    @Column(name = "units_on_order")
     private Integer unitsonorder;
 
-    @Column(name = "ReorderLevel")
+    @Column(name = "reorder_level")
     private Integer reorderlevel;
 
     @Column(name = "Discontinued")
