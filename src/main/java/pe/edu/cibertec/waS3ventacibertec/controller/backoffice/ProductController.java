@@ -19,6 +19,7 @@ import java.util.List;
 public class ProductController {
 
     private IProductService iProductService;
+
     @GetMapping("/product")
     public String formProduct(Model model){
         model.addAttribute("listProduct", iProductService.listProduct());

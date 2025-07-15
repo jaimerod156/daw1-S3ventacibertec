@@ -32,16 +32,16 @@
                 <td th:text="${product.productoid} "></td>
                 <td th:text="${product.product_name} "></td>
                 <td th:text="${product.unitprice}"></td>
-                <td th:text="${product.supplier.companyname} "></td>
                 <td th:text="${product.category.category_name} "></td>
+                <td th:text="${product.supplier.companyname} "></td>
                 <td>
                     <button type="button" class="btn btn-primary btnactualizar"
                             data-bs-toggle="modal" data-bs-target="#modalproduct"
-                    th:data-prodcod="${product.productoid}"
+                            th:data-prodcod="${product.productoid}"
                             th:data-prodname="${product.product_name}"
                             th:data-produnit="${product.unitprice}"
-                            th:data-prodsup="${product.supplier.supplierid}"
                             th:data-prodcat="${product.category.categoryid}"
+                            th:data-prodsup="${product.supplier.supplierid}"
                             th:data-proddiscont="${product.discontinued}"
                     >Actualizar</button></td>
             </tr>
