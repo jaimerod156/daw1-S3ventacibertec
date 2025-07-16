@@ -41,7 +41,7 @@
                             th:data-prodname="${product.product_name}"
                             th:data-produnit="${product.unitprice}"
                             th:data-prodcat="${product.category.categoryid}"
-                            th:data-prodsup="${product.supplier.supplierid}"
+                            th:data-prodsupp="${product.supplier.supplierid}"
                             th:data-proddiscont="${product.discontinued}"
                     >Actualizar</button></td>
             </tr>
@@ -72,13 +72,13 @@
                     <div class="mb-3">
                         <label for="cbocategory" class="form-label">Seleccione Categoria</label>
                         <select id="cbocategory" class="form-select">
-                            <option value="">[categoria...]</option>
+                            <option>Categoria....</option>
                         </select>
                     </div>
                 <div class="mb-3">
                     <label for="cbosupplier" class="form-label">Seleccione proveedor</label>
                     <select id="cbosupplier" class="form-select">
-                        <option>[proveedor...]</option>
+                        <option>Proveedor....</option>
                     </select>
                 </div>
                 <div class="form-check form-switch" id="switchproducto">

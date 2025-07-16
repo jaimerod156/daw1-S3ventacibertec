@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pe.edu.cibertec.waS3ventacibertec.model.bd.Category;
 import pe.edu.cibertec.waS3ventacibertec.service.ICategoryService;
 
@@ -24,6 +25,12 @@ public class CategoryController {
         List<Category> lista = icategoryService.listarCategorias();
         model.addAttribute("categorias", lista);
         return "backoffice/category/frmcategory";
+    }
+
+    @GetMapping("/get")
+    @ResponseBody
+    public List<Category> listCategory(){
+        return icategoryService.listarCategorias();
     }
 
 }
