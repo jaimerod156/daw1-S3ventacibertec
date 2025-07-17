@@ -28,6 +28,26 @@ $(document).on("click",".btnactualizar", function(){
     $("#modalproduct").modal("show");
 })
 
+$(document).on("click", "#btnguardar", function(){
+   $.ajax({
+        type:"POST",
+        url: "/product/register",
+        contentType: "application/json",
+        data: JSON.stringify({
+            productId: $("#hddproducto").val(),
+            productname: $("#txtnomproduct").val(),
+            unitprice: $("#txtunitprice").val(),
+            categoryid: $("#cbocategory").val(),
+            supplierid: $("#cbosupplier").val(),
+            discontinued: $("#cbodiscontinued").prop("checked")
+        }),
+        success: function(resultado){
+            alert(resultado.mensaje)
+        }
+   });
+   $("#modalproduct").modal("hide");
+
+});
 function listarCboCategorySupplier(idCategory, idSupplier){
     $.ajax({
         type: "GET",

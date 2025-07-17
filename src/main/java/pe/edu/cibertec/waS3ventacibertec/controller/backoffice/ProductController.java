@@ -15,12 +15,12 @@ import java.util.List;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/Product")
+@RequestMapping("/product")
 public class ProductController {
 
     private IProductService iProductService;
 
-    @GetMapping("/product")
+    @GetMapping("")
     public String formProduct(Model model){
         model.addAttribute("listProduct", iProductService.listProduct());
         return "backoffice/product/formProduct";
