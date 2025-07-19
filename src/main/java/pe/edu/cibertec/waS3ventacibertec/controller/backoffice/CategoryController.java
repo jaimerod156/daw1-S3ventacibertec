@@ -1,13 +1,13 @@
-package pe.edu.cibertec.waS3ventacibertec.model.controller.backoffice;
+package pe.edu.cibertec.waS3ventacibertec.controller.backoffice;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pe.edu.cibertec.waS3ventacibertec.model.bd.Category;
-import pe.edu.cibertec.waS3ventacibertec.model.service.ICategoryService;
+import pe.edu.cibertec.waS3ventacibertec.service.ICategoryService;
 
 import java.util.List;
 
@@ -15,7 +15,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-    @Autowired
+
+
     private ICategoryService icategoryService;
 
 
@@ -25,4 +26,11 @@ public class CategoryController {
         model.addAttribute("categorias", lista);
         return "backoffice/category/frmcategory";
     }
+
+    @GetMapping("/get")
+    @ResponseBody
+    public List<Category> listCategory(){
+        return icategoryService.listarCategorias();
+    }
+
 }
