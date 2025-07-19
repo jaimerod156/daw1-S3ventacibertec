@@ -16,6 +16,7 @@ $(document).on("click",".btnactualizar", function(){
     $("#hddproducto").val($(this).attr("data-prodcod"));
     $("#cbocategory").empty();
     $("#cbosupplier").empty();
+    listarCboCategorySupplier($(this).attr("data-prodcod"),$(this).attr("data-prodsupp"));
     $("#switchproducto").show();
 
     if($(this).attr("data-proddiscont") === "true"){
@@ -23,7 +24,6 @@ $(document).on("click",".btnactualizar", function(){
     }else{
         $("#cbodiscontinued").prop("checked", false)
     }
-    listarCboCategorySupplier($(this).attr("data-prodcod"),$(this).attr("data-prodsupp"));
 
     $("#modalproduct").modal("show");
 })
@@ -66,6 +66,14 @@ function listarProductos(){
                 `<td>${value.unitprice}</td>` +
                 `<td>${value.category.category_name}</td>` +
                 `<td>${value.supplier.companyname}</td>` +
+                `<td><button type='button' class='btn btn-primary btnactualizar'` +
+                    `data-prodcod="${value.productoid}" ` +
+                    `data-prodname="${value.product_name}" ` +
+                    `data-produnit="${value.unitprice}" ` +
+                    `data-prodcat="${value.category.categoryid}" ` +
+                    `data-prodsupp="${value.supplier.supplierid}" ` +
+                    `data-proddiscont="${value.discontinued}">Actualizar` +
+                `</button></td>` +
                 `</tr>`)
             });
         }
