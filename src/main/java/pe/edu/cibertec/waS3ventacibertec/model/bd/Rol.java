@@ -13,5 +13,6 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idrol;
+
     private String nomrol;
 }

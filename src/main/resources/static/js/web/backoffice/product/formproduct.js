@@ -21,9 +21,8 @@ $(document).on("click",".btnactualizar", function(){
 
     if($(this).attr("data-proddiscont") === "true"){
         $("#cbodiscontinued").prop("checked", true)
-    }else{
+    }else
         $("#cbodiscontinued").prop("checked", false)
-    }
 
     $("#modalproduct").modal("show");
 })
@@ -46,7 +45,6 @@ $(document).on("click", "#btnguardar", function(){
                 listarProductos();
             }
             alert(resultado.mensaje)
-
         }
    });
    $("#modalproduct").modal("hide");
@@ -83,7 +81,7 @@ function listarProductos(){
 function listarCboCategorySupplier(idCategory, idSupplier){
     $.ajax({
         type: "GET",
-        url:"/category/get",
+        url:"/category/ge t",
         dataType: "json",
         success: function(resultado){
             $.each(resultado, function(index, value){
