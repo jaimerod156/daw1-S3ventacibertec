@@ -30,6 +30,7 @@ public class CategoryController {
     @GetMapping("/get")
     @ResponseBody
     public List<Category> listCategory(){
+
         return icategoryService.listarCategorias();
     }
 
