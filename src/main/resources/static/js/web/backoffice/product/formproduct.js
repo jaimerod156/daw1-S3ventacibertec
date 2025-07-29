@@ -81,7 +81,7 @@ function listarProductos(){
 function listarCboCategorySupplier(idCategory, idSupplier){
     $.ajax({
         type: "GET",
-        url:"/category/ge t",
+        url:"/category/get",
         dataType: "json",
         success: function(resultado){
             $.each(resultado, function(index, value){
