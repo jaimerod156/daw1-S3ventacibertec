@@ -2,16 +2,18 @@ $(document).on("click","#btnagregar", function(){
     $("#txtnombre").val("");
     $("#txtapellido").val("");
     $("#txtusuario").val("");
+     $("#txtusuario").prop('readonly',true);
     $("#txtemail").val("");
-    $("#txtpassword").val("");
+    $("#txtemail").prop('readonly',true);
     $("#hddusuario").val("0");
     $("#switchusuario").hide();
     $("#cbactivo").prop("checked", false)
+    $("#divmsgpassword").show();
+    $("#btnenviar").hide();
     $("#modalusuario").modal("show");
 })
 
 $(document).on("click",".btnactualizar", function(){
-
     $.ajax({
         type: "GET",
         url: "/seguridad/usuario/" + $(this).attr("data-usuid"),
@@ -20,10 +22,14 @@ $(document).on("click",".btnactualizar", function(){
             $("#txtnombre").val(resultado.nombres);
             $("#txtapellido").val(resultado.apellidos);
             $("#txtusuario").val(resultado.nomusuario);
+            $("#txtusuario").prop('readonly',true);
             $("#txtemail").val(resultado.email);
+            $("#txtemail").prop('readonly',true);
             $("#txtpassword").hide();
-            $("#hddusuario").val($(this).attr("data-usuid"));
+            $("#hddusuario").val(resultado.idusuario);
             $("#switchusuario").show();
+            $("#divmsgpassword").hide();
+            $("#btnenviar").show();
 
             if(resultado.activo)
                 $("#cbactivo").prop("checked", true)

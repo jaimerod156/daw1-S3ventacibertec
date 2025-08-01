@@ -20,7 +20,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain configSecurity(HttpSecurity httpSecurity)
-            throws Exception {
+            throws Exception
+    {
         httpSecurity.authorizeHttpRequests(
                 auth -> auth.requestMatchers("/auth/login",
                         "/resources/**",

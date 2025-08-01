@@ -18,7 +18,6 @@ public class SeguridadController {
 
     @GetMapping("/usuario")
     public String frmUsuario(Model model){
-
         model.addAttribute("listaUsuarios",iUsuarioService.listarUsuarios());
         return "backoffice/seguridad/formusuario";
     }
