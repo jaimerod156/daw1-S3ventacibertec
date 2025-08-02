@@ -26,7 +26,7 @@ $(document).on("click",".btnactualizar", function(){
             $("#txtemail").val(resultado.email);
             $("#txtemail").prop('readonly',true);
             $("#txtpassword").hide();
-            $("#hddusuario").val(resultado.idusuario);
+            $("#hddidusuario").val(resultado.idusuario);
             $("#switchusuario").show();
             $("#divmsgpassword").hide();
             $("#btnenviar").show();
@@ -44,47 +44,42 @@ $(document).on("click",".btnactualizar", function(){
 $(document).on("click", "#btnguardar", function(){
    $.ajax({
         type:"POST",
-        url: "/usuario/registrar",
+        url: "/seguridad/usuario/registrar",
         contentType: "application/json",
         data: JSON.stringify({
-            productId: $("#hddproducto").val(),
-            productname: $("#txtnomproduct").val(),
-            unitprice: $("#txtunitprice").val(),
-            categoryid: $("#cbocategory").val(),
-            supplierid: $("#cbosupplier").val(),
-            discontinued: $("#cbodiscontinued").prop("checked")
+            idusuario: $("#hddidusuario").val(),
+            nomusuario: $("#txtusuario").val(),
+            nombres: $("#txtnombre").val(),
+            apellidos: $("#txtapellido").val(),
+            email: $("#txtemail").val(),
+            active: $("#cbactivo").prop("checked")
         }),
         success: function(resultado){
             if(resultado.respuesta){
-                listarProductos();
+                listarUsuarios();
             }
             alert(resultado.mensaje)
         }
    });
-   $("#modalproduct").modal("hide");
+   $("#modalusuario").modal("hide");
 });
 
-function listarProductos(){
+function listarUsuarios(){
     $.ajax({
         type: "GET",
-        url: "/product/list",
+        url: "/seguridad/usuario/lista",
         dataType: "json",
         success: function(resultado){
-            $("#tblproducto > tbody").html("");
+            $("#tblusuario > tbody").html("");
             $.each(resultado, function(index, value){
-                $("#tblproducto > tbody").append(`<tr>` +
-                `<td>${value.productoid}</td>` +
-                `<td>${value.product_name}</td>` +
-                `<td>${value.unitprice}</td>` +
-                `<td>${value.category.category_name}</td>` +
-                `<td>${value.supplier.companyname}</td>` +
+                $("#tblusuario > tbody").append(`<tr>` +
+                `<td>${value.nombres}</td>` +
+                `<td>${value.apellidos}</td>` +
+                `<td>${value.nomusuario}</td>` +
+                `<td>${value.email}</td>` +
+                `<td>${value.activo}</td>` +
                 `<td><button type='button' class='btn btn-primary btnactualizar'` +
-                    `data-prodcod="${value.productoid}" ` +
-                    `data-prodname="${value.product_name}" ` +
-                    `data-produnit="${value.unitprice}" ` +
-                    `data-prodcat="${value.category.categoryid}" ` +
-                    `data-prodsupp="${value.supplier.supplierid}" ` +
-                    `data-proddiscont="${value.discontinued}">Actualizar` +
+                    `data-usuid="${value.idusuario}">Actualizar` +
                 `</button></td>` +
                 `</tr>`)
             });

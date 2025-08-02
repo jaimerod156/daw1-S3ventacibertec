@@ -40,7 +40,7 @@ public class SeguridadController {
             Usuario usuario = new Usuario();
             usuario.setNombres(usuarioRequest.getNombres());
             usuario.setApellidos(usuarioRequest.getApellidos());
-
+            System.out.println(usuarioRequest.getIdusuario() );
             if(usuarioRequest.getIdusuario() > 0){
                 usuario.setIdusuario(usuarioRequest.getIdusuario());
                 usuario.setActivo(usuarioRequest.getActivo());
