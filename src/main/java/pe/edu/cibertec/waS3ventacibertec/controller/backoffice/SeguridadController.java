@@ -9,6 +9,8 @@ import pe.edu.cibertec.waS3ventacibertec.model.dto.request.UsuarioRequest;
 import pe.edu.cibertec.waS3ventacibertec.model.dto.response.ResultadoResponse;
 import pe.edu.cibertec.waS3ventacibertec.service.IUsuarioService;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Controller
 @RequestMapping("/seguridad")
@@ -36,16 +38,20 @@ public class SeguridadController {
         boolean respuesta = true;
         try{
             Usuario usuario = new Usuario();
-            if(usuarioRequest.getIdusuario() > 0){
-                usuario.setIdusuario(usuarioRequest.getIdusuario());
-            }else
-                usuario.setPassword(usuarioRequest.getPassword()); //no actualizamos contraseña
-
-            // atributos a actualzar
             usuario.setNombres(usuarioRequest.getNombres());
             usuario.setApellidos(usuarioRequest.getApellidos());
-            usuario.setActivo(usuarioRequest.getActivo());
-            iUsuarioService.guardarUsuario(usuario);
+
+            if(usuarioRequest.getIdusuario() > 0){
+                usuario.setIdusuario(usuarioRequest.getIdusuario());
+                usuario.setActivo(usuarioRequest.getActivo());
+                iUsuarioService.actualizarUsuario(usuario);
+            }else{
+                usuario.setNomusuario(usuarioRequest.getNomusuario());
+                usuario.setEmail(usuarioRequest.getEmail());
+                iUsuarioService.guardarUsuario(usuario);
+            }
+
+
         }catch (Exception ex){
             mensaje = "Usuario no registrado. Error en la BD";
             respuesta = false;
@@ -53,5 +59,12 @@ public class SeguridadController {
         return ResultadoResponse.builder().mensaje(mensaje)
                 .respuesta(respuesta).build();
     }
+
+    @GetMapping("/usuario/lista")
+    @ResponseBody
+    public List<Usuario> listarUsuarios(){
+        return iUsuarioService.listarUsuarios();
+    }
+
 }
 

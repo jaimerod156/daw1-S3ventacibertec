@@ -44,7 +44,7 @@ $(document).on("click",".btnactualizar", function(){
 $(document).on("click", "#btnguardar", function(){
    $.ajax({
         type:"POST",
-        url: "/product/register",
+        url: "/usuario/registrar",
         contentType: "application/json",
         data: JSON.stringify({
             productId: $("#hddproducto").val(),
