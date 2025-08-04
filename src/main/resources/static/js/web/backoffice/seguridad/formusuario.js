@@ -2,12 +2,12 @@ $(document).on("click","#btnagregar", function(){
     $("#txtnombre").val("");
     $("#txtapellido").val("");
     $("#txtusuario").val("");
-     $("#txtusuario").prop('readonly',true);
+     $("#txtusuario").prop('readonly',false);
     $("#txtemail").val("");
-    $("#txtemail").prop('readonly',true);
+    $("#txtemail").prop('readonly',false);
     $("#hddusuario").val("0");
     $("#switchusuario").hide();
-    $("#cbactivo").prop("checked", false)
+    $("#cbactivo").prop("checked", false);
     $("#divmsgpassword").show();
     $("#btnenviar").hide();
     $("#modalusuario").modal("show");
@@ -16,7 +16,7 @@ $(document).on("click","#btnagregar", function(){
 $(document).on("click",".btnactualizar", function(){
     $.ajax({
         type: "GET",
-        url: "/seguridad/usuario/" + $(this).attr("data-usuid"),
+        url: "/seguridad/usuario/"+$(this).attr("data-usuid"),
         dataType: "json",
         success: function(resultado){
             $("#txtnombre").val(resultado.nombres);
@@ -52,7 +52,7 @@ $(document).on("click", "#btnguardar", function(){
             nombres: $("#txtnombre").val(),
             apellidos: $("#txtapellido").val(),
             email: $("#txtemail").val(),
-            active: $("#cbactivo").prop("checked")
+            activo: $("#cbactivo").prop("checked")
         }),
         success: function(resultado){
             if(resultado.respuesta){
