@@ -16,7 +16,7 @@ $(document).on("click",".btnactualizar", function(){
     $("#hddproducto").val($(this).attr("data-prodcod"));
     $("#cbocategory").empty();
     $("#cbosupplier").empty();
-    listarCboCategorySupplier($(this).attr("data-prodcod"),$(this).attr("data-prodsupp"));
+    listarCboCategorySupplier($(this).attr("data-prodcat"),$(this).attr("data-prodsupp"));
     $("#switchproducto").show();
 
     if($(this).attr("data-proddiscont") === "true"){

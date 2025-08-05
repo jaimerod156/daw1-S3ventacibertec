@@ -3,10 +3,12 @@ package pe.edu.cibertec.waS3ventacibertec.model.bd;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
+@NoArgsConstructor
 @Data //encapsula los atributo de la clase
 @Entity
 @Table(name = "Employees")
